@@ -1,5 +1,7 @@
-const errorHandlingMiddleware = (error, req, res) => {
-  return res.status(500).json({
+const errorHandlingMiddleware = (error, req, res, next) => {
+  res.status(500);
+
+  return res.json({
     message: error.message,
   });
 };

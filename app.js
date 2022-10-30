@@ -3,11 +3,13 @@ const { config } = require("dotenv");
 const httpRoutes = require("./routes/http");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const { startWebSocket, getSocket } = require("./web-socket");
+const cors = require("./middleware/cors");
 
 const app = express();
 
 config();
 
+app.use(cors);
 app.use(httpRoutes);
 app.use(errorHandlingMiddleware);
 
@@ -19,3 +21,12 @@ const httpServer = app.listen(process.env.PORT, (err) => {
 });
 
 startWebSocket(httpServer);
+
+const socket = getSocket();
+
+socket.on("connection", (client_socket) => {
+  console.log("New Connection added");
+  client_socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
