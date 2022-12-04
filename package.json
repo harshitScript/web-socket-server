@@ -1,12 +1,12 @@
 {
   "name": "web-socket-server",
   "version": "1.0.0",
-  "description": "A websocket server to understand the working of web scokets protocol with real time updation.",
+  "description": "A websocket server to understand the working of web sockets protocol with real time update.",
   "main": "app.js",
   "scripts": {
-    "test": "env-cmd -f ./environment/.env.test nodemon app.js",
-    "start": "env-cmd -f ./environment/.env nodemon app.js",
-    "prod": "env-cmd -f ./environment/.env.prod nodemon app.js"
+    "start": "npm start",
+    "start:dev": "env-cmd -f ./environment/.env nodemon app.js",
+    "start:prod": "env-cmd -f ./environment/.env.prod nodemon app.js"
   },
   "keywords": [
     "web-sockets",

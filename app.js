@@ -13,7 +13,7 @@ app.use(cors);
 app.use(httpRoutes);
 app.use(errorHandlingMiddleware);
 
-const httpServer = app.listen(process.env.PORT, (err) => {
+const httpServer = app.listen(process.env.PORT || 4000, (err) => {
   if (err) return console.log("Error occurred while starting the server.");
   return console.log(
     `${process.env.APP_NAME} started at port => ${process.env.PORT}.`
