@@ -24,9 +24,16 @@ startWebSocket(httpServer);
 
 const socket = getSocket();
 
+//* Event public to all clients.
 socket.on("connection", (client_socket) => {
   console.log("New Connection added");
   client_socket.on("disconnect", () => {
     console.log("user disconnected");
+  });
+
+  //* Event private to a particular client.
+  client_socket.on("join-test-room", () => {
+    //? Client joins a room/group.
+    client_socket.join("test");
   });
 });

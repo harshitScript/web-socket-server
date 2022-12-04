@@ -14,6 +14,7 @@ const pingMessageController = (req, res) => {
 
   const socket = getSocket();
 
+  //socket.to("test").emit("ping-message", { message });
   socket.emit("ping-message", { message });
 
   return res.json({
